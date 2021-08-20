@@ -23,6 +23,7 @@
 using JetBrains.Annotations;
 using Remora.Discord.API.Abstractions.Voice.Gateway.Commands;
 using Remora.Discord.API.Abstractions.Voice.Gateway.Events;
+using Remora.Discord.Core;
 
 namespace Remora.Discord.API.Abstractions.Voice.Gateway.Bidirectional
 {
@@ -33,18 +34,18 @@ namespace Remora.Discord.API.Abstractions.Voice.Gateway.Bidirectional
     public interface IVoiceSpeaking : IVoiceGatewayCommand, IVoiceGatewayEvent
     {
         /// <summary>
+        /// Gets the ID of the user who speaking.
+        /// </summary>
+        Snowflake UserID { get; }
+
+        /// <summary>
         /// Gets the speaker flags.
         /// </summary>
         SpeakingFlags Speaking { get; }
 
         /// <summary>
-        /// Gets the delay of the speech event.
-        /// </summary>
-        int Delay { get; }
-
-        /// <summary>
         /// Gets the synchronization source ID that this speech event is associated with.
         /// </summary>
-        int SSRC { get; }
+        uint SSRC { get; }
     }
 }

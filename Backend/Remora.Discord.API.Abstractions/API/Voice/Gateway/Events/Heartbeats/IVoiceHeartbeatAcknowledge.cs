@@ -1,5 +1,5 @@
 //
-//  IVoiceIdentify.cs
+//  IVoiceHeartbeatAcknowledge.cs
 //
 //  Author:
 //       Jarl Gullberg <jarl.gullberg@gmail.com>
@@ -21,34 +21,18 @@
 //
 
 using JetBrains.Annotations;
-using Remora.Discord.Core;
 
-namespace Remora.Discord.API.Abstractions.Voice.Gateway.Commands
+namespace Remora.Discord.API.Abstractions.Voice.Gateway.Events
 {
     /// <summary>
-    /// Represents a request to identify with the voice gateway.
+    /// Represents a heartbeat acknowledgement.
     /// </summary>
     [PublicAPI]
-    public interface IVoiceIdentify : IVoiceGatewayCommand
+    public interface IVoiceHeartbeatAcknowledge : IVoiceGatewayEvent
     {
         /// <summary>
-        /// Gets the ID of the guild to identify with.
+        /// Gets the nonce used for the received heartbeat.
         /// </summary>
-        Snowflake ServerID { get; }
-
-        /// <summary>
-        /// Gets the ID of the user that's trying to identify themselves.
-        /// </summary>
-        Snowflake UserID { get; }
-
-        /// <summary>
-        /// Gets the voice session ID to initialize.
-        /// </summary>
-        string SessionID { get; }
-
-        /// <summary>
-        /// Gets the authentication token of the identifying user.
-        /// </summary>
-        string Token { get; }
+        long Nonce { get; }
     }
 }

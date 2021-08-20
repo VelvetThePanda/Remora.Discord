@@ -1,5 +1,5 @@
 //
-//  IVoiceIdentify.cs
+//  IVoiceClientDisconnect.cs
 //
 //  Author:
 //       Jarl Gullberg <jarl.gullberg@gmail.com>
@@ -23,32 +23,17 @@
 using JetBrains.Annotations;
 using Remora.Discord.Core;
 
-namespace Remora.Discord.API.Abstractions.Voice.Gateway.Commands
+namespace Remora.Discord.API.Abstractions.Voice.Gateway.Events
 {
     /// <summary>
-    /// Represents a request to identify with the voice gateway.
+    /// Represents data that a client disconnect.
     /// </summary>
     [PublicAPI]
-    public interface IVoiceIdentify : IVoiceGatewayCommand
+    public interface IVoiceClientDisconnect : IVoiceGatewayEvent
     {
         /// <summary>
-        /// Gets the ID of the guild to identify with.
-        /// </summary>
-        Snowflake ServerID { get; }
-
-        /// <summary>
-        /// Gets the ID of the user that's trying to identify themselves.
+        /// Gets the ID of the user who disconnected.
         /// </summary>
         Snowflake UserID { get; }
-
-        /// <summary>
-        /// Gets the voice session ID to initialize.
-        /// </summary>
-        string SessionID { get; }
-
-        /// <summary>
-        /// Gets the authentication token of the identifying user.
-        /// </summary>
-        string Token { get; }
     }
 }

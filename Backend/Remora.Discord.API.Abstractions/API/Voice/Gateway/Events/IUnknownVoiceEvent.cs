@@ -1,5 +1,5 @@
-//
-//  IVoiceIdentify.cs
+﻿//
+//  IUnknownVoiceEvent.cs
 //
 //  Author:
 //       Jarl Gullberg <jarl.gullberg@gmail.com>
@@ -20,35 +20,24 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-using JetBrains.Annotations;
-using Remora.Discord.Core;
+using Remora.Discord.API.Abstractions.Voice.Gateway;
+using Remora.Discord.API.Abstractions.Voice.Gateway.Events;
 
-namespace Remora.Discord.API.Abstractions.Voice.Gateway.Commands
+namespace Remora.Discord.API.Abstractions.Voice.Gateway.Events
 {
     /// <summary>
-    /// Represents a request to identify with the voice gateway.
+    /// Represents an unknown voice event.
     /// </summary>
-    [PublicAPI]
-    public interface IVoiceIdentify : IVoiceGatewayCommand
+    public interface IUnknownVoiceEvent : IVoiceGatewayEvent
     {
         /// <summary>
-        /// Gets the ID of the guild to identify with.
+        /// Gets the voice opcode that represents the unknown event.
         /// </summary>
-        Snowflake ServerID { get; }
+        VoiceOperationCode OperationCode { get; }
 
         /// <summary>
-        /// Gets the ID of the user that's trying to identify themselves.
+        /// Gets the JSON string that represents the unknown event.
         /// </summary>
-        Snowflake UserID { get; }
-
-        /// <summary>
-        /// Gets the voice session ID to initialize.
-        /// </summary>
-        string SessionID { get; }
-
-        /// <summary>
-        /// Gets the authentication token of the identifying user.
-        /// </summary>
-        string Token { get; }
+        string Data { get; }
     }
 }

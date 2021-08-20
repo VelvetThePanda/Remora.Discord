@@ -1,5 +1,5 @@
 //
-//  IVoicePayloadOfT.cs
+//  VoiceSessionDescription.cs
 //
 //  Author:
 //       Jarl Gullberg <jarl.gullberg@gmail.com>
@@ -20,22 +20,13 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+using System.Collections.Generic;
 using JetBrains.Annotations;
+using Remora.Discord.API.Abstractions.Voice.Gateway.Events;
 
-#pragma warning disable SA1649
-
-namespace Remora.Discord.API.Abstractions.Voice.Gateway
+namespace Remora.Discord.API.Voice.Gateway.Events
 {
-    /// <summary>
-    /// Marker interface for voice payload classes.
-    /// </summary>
-    /// <typeparam name="TData">The data contained in the payload.</typeparam>
+    /// <inheritdoc cref="Remora.Discord.API.Abstractions.Voice.Gateway.Events.IVoiceSessionDescription" />
     [PublicAPI]
-    public interface IVoicePayload<out TData> : IVoicePayload
-    {
-        /// <summary>
-        /// Gets the data contained in the payload.
-        /// </summary>
-        TData Data { get; }
-    }
+    public record VoiceSessionDescription(string Mode, IReadOnlyList<byte> SecretKey) : IVoiceSessionDescription;
 }

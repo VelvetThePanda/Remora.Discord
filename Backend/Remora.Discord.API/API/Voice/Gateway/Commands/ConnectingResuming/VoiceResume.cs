@@ -1,5 +1,5 @@
 //
-//  IVoiceHeartbeatAcknowledge.cs
+//  VoiceResume.cs
 //
 //  Author:
 //       Jarl Gullberg <jarl.gullberg@gmail.com>
@@ -22,19 +22,11 @@
 
 using JetBrains.Annotations;
 using Remora.Discord.API.Abstractions.Voice.Gateway.Commands;
-using Remora.Discord.API.Abstractions.Voice.Gateway.Events;
+using Remora.Discord.Core;
 
-namespace Remora.Discord.API.Abstractions.Voice.Gateway.Bidirectional
+namespace Remora.Discord.API.Voice.Gateway.Commands
 {
-    /// <summary>
-    /// Represents a heartbeat acknowledgement.
-    /// </summary>
+    /// <inheritdoc cref="Remora.Discord.API.Abstractions.Voice.Gateway.Commands.IVoiceResume" />
     [PublicAPI]
-    public interface IVoiceHeartbeatAcknowledge : IVoiceGatewayEvent, IVoiceGatewayCommand
-    {
-        /// <summary>
-        /// Gets the nonce used for the received heartbeat.
-        /// </summary>
-        long Nonce { get; }
-    }
+    public record VoiceResume(Snowflake ServerID, string SessionID, string Token) : IVoiceResume;
 }

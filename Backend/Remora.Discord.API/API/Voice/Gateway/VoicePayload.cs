@@ -1,5 +1,5 @@
 //
-//  IVoiceIdentify.cs
+//  VoicePayload.cs
 //
 //  Author:
 //       Jarl Gullberg <jarl.gullberg@gmail.com>
@@ -21,34 +21,14 @@
 //
 
 using JetBrains.Annotations;
-using Remora.Discord.Core;
+using Remora.Discord.API.Abstractions.Voice.Gateway;
 
-namespace Remora.Discord.API.Abstractions.Voice.Gateway.Commands
+namespace Remora.Discord.API.Voice.Gateway
 {
     /// <summary>
-    /// Represents a request to identify with the voice gateway.
+    /// Represents a payload from the Discord voice gateway.
     /// </summary>
+    /// <typeparam name="TData">The data type encapsulated in the payload.</typeparam>
     [PublicAPI]
-    public interface IVoiceIdentify : IVoiceGatewayCommand
-    {
-        /// <summary>
-        /// Gets the ID of the guild to identify with.
-        /// </summary>
-        Snowflake ServerID { get; }
-
-        /// <summary>
-        /// Gets the ID of the user that's trying to identify themselves.
-        /// </summary>
-        Snowflake UserID { get; }
-
-        /// <summary>
-        /// Gets the voice session ID to initialize.
-        /// </summary>
-        string SessionID { get; }
-
-        /// <summary>
-        /// Gets the authentication token of the identifying user.
-        /// </summary>
-        string Token { get; }
-    }
+    public record VoicePayload<TData>(TData Data) : IVoicePayload<TData> where TData : IVoiceGatewayPayloadData;
 }

@@ -1,5 +1,5 @@
 //
-//  IVoiceHeartbeat.cs
+//  VoiceResumed.cs
 //
 //  Author:
 //       Jarl Gullberg <jarl.gullberg@gmail.com>
@@ -21,20 +21,11 @@
 //
 
 using JetBrains.Annotations;
-using Remora.Discord.API.Abstractions.Voice.Gateway.Commands;
 using Remora.Discord.API.Abstractions.Voice.Gateway.Events;
 
-namespace Remora.Discord.API.Abstractions.Voice.Gateway.Bidirectional
+namespace Remora.Discord.API.Voice.Gateway.Events
 {
-    /// <summary>
-    /// Represents a heartbeat command to or from Discord.
-    /// </summary>
+    /// <inheritdoc cref="Remora.Discord.API.Abstractions.Voice.Gateway.Events.IVoiceResumed" />
     [PublicAPI]
-    public interface IVoiceHeartbeat : IVoiceGatewayCommand, IVoiceGatewayEvent
-    {
-        /// <summary>
-        /// Gets the nonce used for this heartbeat.
-        /// </summary>
-        long Nonce { get; }
-    }
+    public record VoiceResumed() : IVoiceResumed;
 }
