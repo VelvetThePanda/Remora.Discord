@@ -47,7 +47,7 @@ namespace Remora.Discord.Commands.Tests.Extensions
             {
                 var command = new InteractionData
                 (
-                    new Snowflake(0),
+                    DiscordSnowflake.New(0),
                     "a",
                     default
                 );
@@ -65,7 +65,7 @@ namespace Remora.Discord.Commands.Tests.Extensions
             {
                 var command = new InteractionData
                 (
-                    new Snowflake(0),
+                    DiscordSnowflake.New(0),
                     "a",
                     default,
                     new[]
@@ -74,7 +74,7 @@ namespace Remora.Discord.Commands.Tests.Extensions
                         (
                             "b",
                             ApplicationCommandOptionType.Integer,
-                            new Optional<OneOf<IApplicationCommandInteractionDataOption, string, long, bool, Snowflake>>(1)
+                            new Optional<OneOf<string, long, bool, Snowflake, double>>(1)
                         )
                     }
                 );
@@ -97,7 +97,7 @@ namespace Remora.Discord.Commands.Tests.Extensions
             {
                 var command = new InteractionData
                 (
-                    new Snowflake(0),
+                    DiscordSnowflake.New(0),
                     "a",
                     default,
                     new[]
@@ -106,13 +106,13 @@ namespace Remora.Discord.Commands.Tests.Extensions
                         (
                             "b",
                             ApplicationCommandOptionType.Integer,
-                            new Optional<OneOf<IApplicationCommandInteractionDataOption, string, long, bool, Snowflake>>(1)
+                            new Optional<OneOf<string, long, bool, Snowflake, double>>(1)
                         ),
                         new ApplicationCommandInteractionDataOption
                         (
                             "c",
                             ApplicationCommandOptionType.Integer,
-                            new Optional<OneOf<IApplicationCommandInteractionDataOption, string, long, bool, Snowflake>>(2)
+                            new Optional<OneOf<string, long, bool, Snowflake, double>>(2)
                         )
                     }
                 );
@@ -139,7 +139,7 @@ namespace Remora.Discord.Commands.Tests.Extensions
             {
                 var command = new InteractionData
                 (
-                    new Snowflake(0),
+                    DiscordSnowflake.New(0),
                     "a",
                     default,
                     new[]
@@ -165,7 +165,7 @@ namespace Remora.Discord.Commands.Tests.Extensions
             {
                 var command = new InteractionData
                 (
-                    new Snowflake(0),
+                    DiscordSnowflake.New(0),
                     "a",
                     default,
                     new[]
@@ -181,7 +181,7 @@ namespace Remora.Discord.Commands.Tests.Extensions
                                 (
                                     "c",
                                     ApplicationCommandOptionType.Integer,
-                                    new Optional<OneOf<IApplicationCommandInteractionDataOption, string, long, bool, Snowflake>>(1)
+                                    new Optional<OneOf<string, long, bool, Snowflake, double>>(1)
                                 )
                             }
                         )
@@ -206,7 +206,7 @@ namespace Remora.Discord.Commands.Tests.Extensions
             {
                 var command = new InteractionData
                 (
-                    new Snowflake(0),
+                    DiscordSnowflake.New(0),
                     "a",
                     default,
                     new[]
@@ -222,13 +222,13 @@ namespace Remora.Discord.Commands.Tests.Extensions
                                 (
                                     "c",
                                     ApplicationCommandOptionType.Integer,
-                                    new Optional<OneOf<IApplicationCommandInteractionDataOption, string, long, bool, Snowflake>>(1)
+                                    new Optional<OneOf<string, long, bool, Snowflake, double>>(1)
                                 ),
                                 new ApplicationCommandInteractionDataOption
                                 (
                                     "d",
                                     ApplicationCommandOptionType.Integer,
-                                    new Optional<OneOf<IApplicationCommandInteractionDataOption, string, long, bool, Snowflake>>(2)
+                                    new Optional<OneOf<string, long, bool, Snowflake, double>>(2)
                                 )
                             }
                         )

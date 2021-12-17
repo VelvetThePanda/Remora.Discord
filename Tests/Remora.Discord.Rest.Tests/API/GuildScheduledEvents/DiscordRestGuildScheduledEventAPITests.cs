@@ -55,7 +55,7 @@ public class DiscordRestGuildScheduledEventAPITests
         [Fact]
         public async Task PerformsRequestCorrectly()
         {
-            var guildID = new Snowflake(1);
+            var guildID = DiscordSnowflake.New(1);
             var withUserCount = true;
 
             var api = CreateAPI
@@ -83,8 +83,8 @@ public class DiscordRestGuildScheduledEventAPITests
         [Fact]
         public async Task PerformsRequestCorrectly()
         {
-            var guildID = new Snowflake(1);
-            var channelID = new Snowflake(2);
+            var guildID = DiscordSnowflake.New(1);
+            var channelID = DiscordSnowflake.New(2);
             var entityMetadata = new GuildScheduledEventEntityMetadata();
             var name = "wooga";
             var privacyLevel = GuildScheduledEventPrivacyLevel.GuildOnly;
@@ -92,6 +92,7 @@ public class DiscordRestGuildScheduledEventAPITests
             var scheduledEndTime = scheduledStartTime.AddHours(1);
             var description = "booga";
             var entityType = GuildScheduledEventEntityType.StageInstance;
+            var reason = "aaa";
 
             var api = CreateAPI
             (
@@ -116,6 +117,7 @@ public class DiscordRestGuildScheduledEventAPITests
                                 .WithProperty("entity_type", p => p.Is((int)entityType))
                         )
                     )
+                    .WithHeaders(Constants.AuditLogHeaderName, reason)
                     .Respond("application/json", SampleRepository.Samples[typeof(IGuildScheduledEvent)])
             );
 
@@ -129,7 +131,8 @@ public class DiscordRestGuildScheduledEventAPITests
                 scheduledStartTime,
                 scheduledEndTime,
                 description,
-                entityType
+                entityType,
+                reason
             );
 
             ResultAssert.Successful(result);
@@ -148,8 +151,8 @@ public class DiscordRestGuildScheduledEventAPITests
         [Fact]
         public async Task PerformsRequestCorrectly()
         {
-            var guildID = new Snowflake(1);
-            var eventID = new Snowflake(2);
+            var guildID = DiscordSnowflake.New(1);
+            var eventID = DiscordSnowflake.New(2);
             var withCounts = true;
 
             var api = CreateAPI
@@ -178,9 +181,9 @@ public class DiscordRestGuildScheduledEventAPITests
         [Fact]
         public async Task PerformsRequestCorrectly()
         {
-            var guildID = new Snowflake(1);
-            var eventID = new Snowflake(2);
-            var channelID = new Snowflake(3);
+            var guildID = DiscordSnowflake.New(1);
+            var eventID = DiscordSnowflake.New(2);
+            var channelID = DiscordSnowflake.New(3);
             var entityMetadata = new GuildScheduledEventEntityMetadata();
             var name = "wooga";
             var privacyLevel = GuildScheduledEventPrivacyLevel.GuildOnly;
@@ -189,6 +192,7 @@ public class DiscordRestGuildScheduledEventAPITests
             var description = "booga";
             var entityType = GuildScheduledEventEntityType.StageInstance;
             var status = GuildScheduledEventStatus.Completed;
+            var reason = "aaa";
 
             var api = CreateAPI
             (
@@ -214,6 +218,7 @@ public class DiscordRestGuildScheduledEventAPITests
                                 .WithProperty("status", p => p.Is((int)status))
                         )
                     )
+                    .WithHeaders(Constants.AuditLogHeaderName, reason)
                     .Respond("application/json", SampleRepository.Samples[typeof(IGuildScheduledEvent)])
             );
 
@@ -229,7 +234,8 @@ public class DiscordRestGuildScheduledEventAPITests
                 scheduledEndTime,
                 description,
                 entityType,
-                status
+                status,
+                reason
             );
 
             ResultAssert.Successful(result);
@@ -248,8 +254,8 @@ public class DiscordRestGuildScheduledEventAPITests
         [Fact]
         public async Task PerformsRequestCorrectly()
         {
-            var guildID = new Snowflake(1);
-            var eventID = new Snowflake(2);
+            var guildID = DiscordSnowflake.New(1);
+            var eventID = DiscordSnowflake.New(2);
 
             var api = CreateAPI
             (
@@ -276,12 +282,12 @@ public class DiscordRestGuildScheduledEventAPITests
         [Fact]
         public async Task PerformsRequestCorrectly()
         {
-            var guildID = new Snowflake(1);
-            var eventID = new Snowflake(2);
+            var guildID = DiscordSnowflake.New(1);
+            var eventID = DiscordSnowflake.New(2);
             var limit = 10;
             var withMember = true;
-            var before = new Snowflake(3);
-            var after = new Snowflake(4);
+            var before = DiscordSnowflake.New(3);
+            var after = DiscordSnowflake.New(4);
 
             var api = CreateAPI
             (

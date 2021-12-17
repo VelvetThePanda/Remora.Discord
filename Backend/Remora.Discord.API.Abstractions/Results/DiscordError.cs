@@ -282,6 +282,11 @@ namespace Remora.Discord.API.Abstractions.Results
         WriteRateLimitHit = 20028,
 
         /// <summary>
+        /// The write action you are performing on the server has hit the write rate limit.
+        /// </summary>
+        ServerWriteRateLimitHit = 20029,
+
+        /// <summary>
         /// Your stage channel topic, server name, description, or channel name contains disallowed words.
         /// </summary>
         DisallowedWords = 20031,
@@ -609,6 +614,11 @@ namespace Remora.Discord.API.Abstractions.Results
         CannotSelfRedeemGift = 50054,
 
         /// <summary>
+        /// Some guild is invalid.
+        /// </summary>
+        InvalidGuild = 50055,
+
+        /// <summary>
         /// You need a payment source to redeem this gift.
         /// </summary>
         PaymentSourceRequiredForRedemption = 50070,
@@ -652,6 +662,11 @@ namespace Remora.Discord.API.Abstractions.Results
         /// This server needs more boosts to perform this action.
         /// </summary>
         ServerNeedsMoreBoosts = 50101,
+
+        /// <summary>
+        /// The request body contains invalid JSON.
+        /// </summary>
+        InvalidJSONInRequestBody = 50109,
 
         /// <summary>
         /// Two factor is required for this operation.
