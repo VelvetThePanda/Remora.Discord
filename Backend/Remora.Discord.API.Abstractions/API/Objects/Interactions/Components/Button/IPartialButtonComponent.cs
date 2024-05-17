@@ -51,4 +51,7 @@ public interface IPartialButtonComponent : IPartialMessageComponent
 
     /// <inheritdoc cref="IButtonComponent.IsDisabled"/>
     Optional<bool> IsDisabled { get; }
+
+    /// <inheritdoc cref="IButtonComponent.SkuID"/>
+    Optional<string> SkuID { get; }
 }

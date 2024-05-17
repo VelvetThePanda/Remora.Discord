@@ -66,6 +66,14 @@ public interface IButtonComponent : IMessageComponent, IPartialButtonComponent
     /// </summary>
     new Optional<bool> IsDisabled { get; }
 
+    /// <summary>
+    /// Gets the SKU ID of the button.
+    /// </summary>
+    /// <remarks>
+    /// Only applicable for buttons with a style of <see cref="ButtonComponentStyle.Premium"/>.
+    /// </remarks>
+    Optional<string> SkuID { get; }
+
     /// <inheritdoc/>
     Optional<ComponentType> IPartialButtonComponent.Type => this.Type;
 
@@ -86,4 +94,7 @@ public interface IButtonComponent : IMessageComponent, IPartialButtonComponent
 
     /// <inheritdoc/>
     Optional<bool> IPartialButtonComponent.IsDisabled => this.IsDisabled;
+
+    /// <inheritdoc/>
+    Optional<string> IPartialButtonComponent.SkuID => this.SkuID;
 }

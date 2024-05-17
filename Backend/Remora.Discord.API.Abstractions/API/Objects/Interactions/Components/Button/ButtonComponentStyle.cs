@@ -68,5 +68,13 @@ public enum ButtonComponentStyle
     /// <remarks>
     /// This button style requires a valid value in <see cref="IButtonComponent.URL"/>.
     /// </remarks>
-    Link = 5
+    Link = 5,
+
+    /// <summary>
+    /// A premium button with a gradient.
+    /// </summary>
+    /// <remarks>
+    /// This button style requires a valid value in <see cref="IButtonComponent.SkuID"/>.
+    /// </remarks>
+    Premium = 6,
 }
