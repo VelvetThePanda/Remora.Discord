@@ -20,6 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+using System;
 using JetBrains.Annotations;
 
 namespace Remora.Discord.API.Abstractions.Objects;
@@ -77,5 +78,6 @@ public enum InteractionCallbackType
     /// <summary>
     /// Respond to an interaction with an upgrade button. Only available for apps with monetization enabled.
     /// </summary>
+    [Obsolete("This response type is now deprecated. Use a premium-style button instead.")]
     PremiumRequired = 10
 }
